@@ -18,6 +18,7 @@ python -m pytest -q
 - Destructive paths must stay dry-run by default with account gates.
 - Keep machine schemas documented in `docs/SCHEMAS.md` when you change them.
 - Attribution: leave **Created by Jayden Shutt** branding intact in CLI and reports.
+- Keep the **no warranty / use at your own risk** notices (see `branding.py` and LICENSE).
 
 ## Pull requests
 

@@ -2,6 +2,10 @@
 
 Development and CI never need live AWS credentials.
 
+## No warranty
+
+Offline or online, the software is provided AS IS with no warranty. Use at your own risk. See [LICENSE](../LICENSE).
+
 ## Ways to stay offline
 
 | Mechanism | Effect |

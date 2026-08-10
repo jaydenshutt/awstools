@@ -10,7 +10,12 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from awstools import __version__
-from awstools.branding import ATTRIBUTION_PLAIN, banner_line, version_string
+from awstools.branding import (
+    ATTRIBUTION_PLAIN,
+    NO_WARRANTY_SHORT,
+    banner_line,
+    version_string,
+)
 from awstools.common import exit_codes as ec
 from awstools.common.config import DEFAULT_DETECTORS, ToolsConfig, load_config
 from awstools.common.destructive import require_execute_gates
@@ -223,8 +228,9 @@ def build_parser() -> argparse.ArgumentParser:
             "Destructive actions require --execute --confirm-account."
         ),
         epilog=(
-            f"{ATTRIBUTION_PLAIN}. "
-            "Team guide: docs/TEAMS.md · Offline: docs/OFFLINE.md · First run: docs/FIRST_RUN.md"
+            f"{ATTRIBUTION_PLAIN}. {NO_WARRANTY_SHORT} "
+            "Full legal terms: LICENSE (MIT). "
+            "Team guide: docs/TEAMS.md. Offline: docs/OFFLINE.md. First run: docs/FIRST_RUN.md."
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -363,6 +369,7 @@ def cmd_whoami(args: argparse.Namespace) -> int:
         "region": getattr(session, "region_name", None),
         "offline": offline,
         "tool": banner_line(__version__),
+        "no_warranty": NO_WARRANTY_SHORT,
     }
     data = _maybe_redact(args, data)
     emit(
@@ -1168,6 +1175,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         and args.command
     ):
         print(banner_line(__version__), file=sys.stderr)
+        print(NO_WARRANTY_SHORT, file=sys.stderr)
 
     dispatch = {
         "whoami": cmd_whoami,

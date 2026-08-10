@@ -183,9 +183,17 @@ CI: [.github/workflows/ci.yml](.github/workflows/ci.yml)
 - S3 Object Lock, MFA Delete, and replication can block bucket deletion; errors are recorded in the audit log.
 - EC2 rightsizing uses CloudWatch CPU only (Medium confidence). SP/RI coverage is directional.
 
+## No warranty / use at your own risk
+
+This software is provided **AS IS**, **without warranty of any kind**, express or implied, including but not limited to merchantability, fitness for a particular purpose, and noninfringement.
+
+**You use awstools entirely at your own risk.** The author and copyright holders are not liable for any claim, damage, data loss, unexpected AWS charges, failed deletes, incorrect recommendations, or other consequences of using the tool (including destructive commands such as purge and cleanup).
+
+Full legal terms: [LICENSE](LICENSE) (MIT). The same notice is shown in CLI help, command banners, reports, and JSON output (`no_warranty`).
+
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). The license includes the standard disclaimer of all warranties and limitation of liability.
 
 ## Author
 

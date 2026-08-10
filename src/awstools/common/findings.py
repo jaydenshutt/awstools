@@ -191,10 +191,14 @@ def findings_to_rows(findings: List[Finding]) -> List[Dict[str, Any]]:
 
 
 def findings_payload(findings: List[Finding], **extra: Any) -> Dict[str, Any]:
+    from awstools.branding import ATTRIBUTION_PLAIN, NO_WARRANTY_SHORT
+
     cleaned = dedupe_findings(list(findings))
     br = savings_breakdown(cleaned)
     return {
         "schema_version": FINDINGS_SCHEMA_VERSION,
+        "created_by": ATTRIBUTION_PLAIN,
+        "no_warranty": NO_WARRANTY_SHORT,
         "finding_count": len(cleaned),
         "actionable_count": len(actionable(cleaned)),
         "estimated_monthly_savings_usd": br["high_confidence_usd"],

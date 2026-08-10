@@ -48,3 +48,7 @@ You should receive an acknowledgment within a reasonable time. Please allow time
 - Prefer read-only IAM (`policies/cost-analysis-readonly.json`) for analysis
 - Never store long-lived keys in the repo or CI logs
 - Use `AWSTOOLS_OFFLINE=1` for local development without credentials
+
+## No warranty
+
+This software is provided AS IS, without warranty of any kind. Use at your own risk. See [LICENSE](LICENSE) for the full disclaimer of warranties and limitation of liability.

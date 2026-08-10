@@ -6,7 +6,7 @@ import json
 import sys
 from typing import Any, Dict, Optional
 
-from awstools.branding import ATTRIBUTION_PLAIN
+from awstools.branding import ATTRIBUTION_PLAIN, NO_WARRANTY_SHORT
 
 
 def emit(
@@ -18,9 +18,9 @@ def emit(
 ) -> None:
     """Print JSON object or human text lines to stdout."""
     if fmt == "json":
-        # Always include attribution in machine output for teams/audit
         payload = dict(data)
         payload.setdefault("created_by", ATTRIBUTION_PLAIN)
+        payload.setdefault("no_warranty", NO_WARRANTY_SHORT)
         json.dump(payload, sys.stdout, indent=2, default=str)
         sys.stdout.write("\n")
         return
@@ -34,6 +34,7 @@ def emit(
             print(f"{k}: {v}")
     if show_attribution and fmt == "text":
         print(f"- {ATTRIBUTION_PLAIN}")
+        print(f"- {NO_WARRANTY_SHORT}")
 
 
 def load_json_file(path: str) -> Any:

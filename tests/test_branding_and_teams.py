@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from awstools import __attribution__, __author__, __version__
-from awstools.branding import ATTRIBUTION_PLAIN, version_string
+from awstools.branding import ATTRIBUTION_PLAIN, NO_WARRANTY_SHORT, version_string
 from awstools.cli import build_parser, main
 from awstools.common.findings_diff import diff_findings, format_findings_diff_lines
 
@@ -14,6 +14,8 @@ def test_attribution_constants():
     assert "Created by Jayden Shutt" in __attribution__
     assert "Created by Jayden Shutt" in version_string(__version__)
     assert ATTRIBUTION_PLAIN == "Created by Jayden Shutt"
+    assert "no warranty" in NO_WARRANTY_SHORT.lower()
+    assert "own risk" in NO_WARRANTY_SHORT.lower()
 
 
 def test_version_flag_mentions_author():
@@ -31,6 +33,7 @@ def test_version_flag_mentions_author():
 def test_help_epilog_attribution():
     p = build_parser()
     assert p.epilog and "Jayden Shutt" in p.epilog
+    assert p.epilog and "warranty" in p.epilog.lower()
 
 
 def test_json_emit_includes_created_by(tmp_path, monkeypatch, capsys):
@@ -40,6 +43,7 @@ def test_json_emit_includes_created_by(tmp_path, monkeypatch, capsys):
     out = capsys.readouterr().out
     data = json.loads(out)
     assert "Created by Jayden Shutt" in data.get("created_by", "")
+    assert "warranty" in data.get("no_warranty", "").lower()
 
 
 def test_html_attribution(tmp_path, monkeypatch):
@@ -49,6 +53,9 @@ def test_html_attribution(tmp_path, monkeypatch):
     html = (out / "report.html").read_text(encoding="utf-8")
     assert "Created by Jayden Shutt" in html
     assert "How estimates work" in html
+    assert "warranty" in html.lower() or "own risk" in html.lower()
+    summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
+    assert "warranty" in summary.get("no_warranty", "").lower()
 
 
 def test_findings_diff():

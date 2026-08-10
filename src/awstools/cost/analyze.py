@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from awstools.branding import ATTRIBUTION_PLAIN
+from awstools.branding import ATTRIBUTION_PLAIN, NO_WARRANTY_SHORT
 from awstools.common.session import get_account_id
 from awstools.cost.anomalies import detect_anomalies
 from awstools.cost.commitments import fetch_ce_forecast, fetch_commitment_coverage
@@ -277,6 +277,7 @@ def run_analysis(session, config: AnalysisConfig) -> Dict[str, Any]:
     summary = {
         "schema_version": SUMMARY_SCHEMA_VERSION,
         "created_by": ATTRIBUTION_PLAIN,
+        "no_warranty": NO_WARRANTY_SHORT,
         "account_id": account_id,
         "latest_total": latest_total,
         "period_start": start,

@@ -99,6 +99,10 @@ python -m awstools cost -o ./demo
 python -m awstools waste -o ./demo-waste
 ```
 
+## No warranty
+
+awstools is provided **AS IS with no warranty**. Teams and individuals use it **at their own risk**, including for cost estimates and any destructive operations. See [LICENSE](../LICENSE) and the disclaimer in the root [README](../README.md).
+
 ## Support matrix
 
 See [SUPPORT.md](SUPPORT.md). Security reports: [SECURITY.md](../SECURITY.md).

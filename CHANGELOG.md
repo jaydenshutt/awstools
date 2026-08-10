@@ -1,12 +1,16 @@
 # Changelog
 
+## 2.3.1 - no-warranty notices
+
+- Explicit AS IS / no warranty / use-at-your-own-risk language in README, CLI help and banners, JSON `no_warranty`, HTML/PDF footers, execute warnings, and key docs (LICENSE already contained the MIT disclaimer)
+
 ## 2.3.0 - team finish + attribution
 
 - **Created by Jayden Shutt** on run: `--version`, help epilog, stderr banner, JSON `created_by`, HTML/PDF
 - Team guide: `docs/TEAMS.md` (weekly loop, IAM, CI, sharing, execute policy)
 - `CONTRIBUTING.md`
 - `waste --compare previous/findings.json` week-over-week diff (+ `findings-diff.json`)
-- HTML “How estimates work” transparency section
+- HTML "How estimates work" transparency section
 - Legacy folder READMEs marked deprecated
 
 ## 2.2.0 - packaging, CI, HTML v2, moto, rightsizing

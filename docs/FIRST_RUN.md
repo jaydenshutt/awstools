@@ -1,5 +1,9 @@
 # First run (5 minutes)
 
+## No warranty
+
+This tool is provided **AS IS**, without warranty of any kind. You use it at your own risk (including any AWS charges or data loss from cleanup/purge). See [LICENSE](../LICENSE).
+
 ## 1. Install
 
 ```bash

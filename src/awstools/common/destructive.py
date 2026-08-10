@@ -43,6 +43,7 @@ def require_execute_gates(
     if not yes:
         print(
             f"\nWARNING: About to modify/delete {prompt_label} in account {actual_account_id}.\n"
+            "This software is provided AS IS with no warranty. You proceed at your own risk.\n"
             "Type the account ID to proceed, or press Enter to abort."
         )
         try:
