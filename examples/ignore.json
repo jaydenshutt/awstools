@@ -1,0 +1,8 @@
+{
+  "categories": ["nat_gateway_review"],
+  "resources": ["vol-keep-*", "eipalloc-permanent-*"],
+  "regions": [],
+  "tags": {
+    "Environment": "production"
+  }
+}

@@ -1,0 +1,12 @@
+﻿boto3==1.43.67
+botocore==1.43.67
+Jinja2==3.1.6
+matplotlib==3.11.1
+moto==5.2.2
+numpy==2.5.2
+openpyxl==3.1.5
+pandas==3.0.5
+pytest==9.1.1
+pytest-cov==7.1.0
+python-dateutil==2.9.0.post0
+reportlab==5.0.0

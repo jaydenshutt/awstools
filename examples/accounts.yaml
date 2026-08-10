@@ -1,0 +1,8 @@
+# Simple YAML subset (no PyYAML required). JSON is also supported.
+accounts:
+  - name: dev
+    profile: dev
+    region: us-east-1
+  - name: sandbox
+    profile: sandbox
+    all_regions: true

@@ -1,0 +1,11 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+include SECURITY.md
+include pyproject.toml
+recursive-include policies *.json
+recursive-include src/awstools/policies *.json
+recursive-include examples *
+recursive-include docs *
+recursive-include tests *
+global-exclude *.pyc __pycache__ .pytest_cache

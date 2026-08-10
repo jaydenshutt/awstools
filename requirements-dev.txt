@@ -1,0 +1,8 @@
+# Pinned-ish dev/runtime set for reproducible local + CI installs.
+# Generate refreshes with: pip install -e ".[dev]" && pip freeze > requirements-dev.lock
+# This file is the human-editable floor; see requirements-dev.lock for a freeze snapshot.
+
+-e .[dev]
+moto[ec2,s3,sts,cloudwatch]>=5.0.0
+build>=1.0
+twine>=5.0

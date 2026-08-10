@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "account_id": "000000000000",
+  "latest_total": 370.0,
+  "coverage": {
+    "partial": false,
+    "cost_explorer_ok": true,
+    "inventory_error_count": 0
+  },
+  "warnings": [],
+  "estimated_monthly_savings_usd": 50.0,
+  "anomaly_count": 1,
+  "top_services": [
+    {"service": "Amazon Elastic Compute Cloud - Compute", "amount": 200.0}
+  ]
+}

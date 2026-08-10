@@ -1,0 +1,24 @@
+# Example config - copy to ./awstools.toml or ~/.awstools/config.toml
+
+default_region = "us-east-1"
+all_regions = false
+concurrency = 6
+output_dir = "output"
+grace_days = 3
+high_confidence_only_totals = true
+
+# Enable a subset of waste detectors (omit to use all defaults)
+# detectors = ["unattached_ebs", "unassociated_eip", "idle_elb", "incomplete_multipart"]
+
+# fail_on_waste_usd = 100
+# fail_on_savings_usd = 500
+
+[ignore]
+categories = []
+resources = []
+regions = []
+
+[deny]
+accounts = []
+buckets = ["*-do-not-touch*"]
+resources = []

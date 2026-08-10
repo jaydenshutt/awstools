@@ -1,0 +1,54 @@
+# Example GitHub Actions workflow - copy to .github/workflows/finops.yml
+# Requires OIDC or stored AWS credentials as secrets.
+name: Weekly AWS FinOps scan
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"  # Mondays 13:00 UTC
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  finops:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install awstools
+        run: pip install -e .
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Cost analysis
+        run: |
+          python -m awstools cost \
+            --output-dir finops-out/cost \
+            --export-actions actions.csv \
+            --format json \
+            --fail-on-savings-usd 500
+
+      - name: Waste scan
+        run: |
+          python -m awstools waste \
+            --all-regions \
+            --output-dir finops-out/waste \
+            --format json \
+            --fail-on-waste-usd 100
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finops-reports
+          path: finops-out/

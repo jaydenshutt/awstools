@@ -1,0 +1,52 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CostExplorerRead",
+      "Effect": "Allow",
+      "Action": [
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast",
+        "ce:GetDimensionValues",
+        "ce:GetTags",
+        "ce:GetReservationCoverage",
+        "ce:GetSavingsPlansCoverage"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "STSIdentity",
+      "Effect": "Allow",
+      "Action": ["sts:GetCallerIdentity"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "InventoryRead",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "rds:Describe*",
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket",
+        "s3:GetBucketLocation",
+        "s3:GetBucketVersioning",
+        "s3:GetObject",
+        "lambda:ListFunctions",
+        "lambda:ListTags",
+        "elasticloadbalancing:Describe*",
+        "cloudfront:ListDistributions",
+        "dynamodb:ListTables",
+        "dynamodb:DescribeTable",
+        "efs:DescribeFileSystems",
+        "autoscaling:Describe*",
+        "ecr:DescribeRepositories",
+        "ecr:ListImages",
+        "eks:ListClusters",
+        "eks:DescribeCluster",
+        "sqs:ListQueues",
+        "ses:ListIdentities"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
